@@ -4,38 +4,40 @@ public class DevTest {
     static Scanner in = new Scanner(System.in);
 
     public static void main(String[] args) {
-        //  String name = getNonZeroLenString(in, "Enter your name");
-        //  System.out.println("Your name is " + name);
-        //
-        // int favNum = getInt(in, "Enter your favorite number");
-        // System.out.println("Your favorite number is " + favNum);
-        //
-        // double music = getDouble(in, "Enter February's minutes you listened to music");
-        // System.out.println("Your double is " + music);
-        //
-        //  int thirty = getRangedInt(in, "Enter your favorite number in the 30's [30-39]", 30, 39);
-        // System.out.println("You said your favorite number was " + thirty);
-        //
-        // double price = getRangedDouble(in, "Enter the price of your item", 0.5, 13);
-        // System.out.println("The cost of your item is " + price);
-        //
-        // boolean confirm = getYNConfirm(in, "Do you want to continue?");
-        // System.out.println("You said " + confirm);
-        //
-        String regEx = "[a-zA-Z0-9]+";
-        String name = getRegExString(in, "Enter your name", regEx);
-        System.out.println("Your name is: " + name);
-
-        String UC_ID_regEx = "M\\d{8}$";
-        String telephoneNum_regEx = "^\\d{3}-\\d{3}-\\d{4}$";
-
-        String UC_ID = getRegExString(in, "Enter your UC School ID", UC_ID_regEx);
-        System.out.println("Your UC ID is " + UC_ID);
-
-        String telephoneNum = getRegExString(in, "Enter your telephone number", telephoneNum_regEx);
-        System.out.println("Your telephone number is " + telephoneNum);
-
-
+//          String name = SafeInput.getNonZeroLenString(in, "Enter your name");
+//          System.out.println("Your name is " + name);
+//
+//         int favNum = SafeInput.getInt(in, "Enter your favorite number");
+//         System.out.println("Your favorite number is " + favNum);
+//
+//         double music = SafeInput.getDouble(in, "Enter February's minutes you listened to music");
+//         System.out.println("Your double is " + music);
+//
+//          int thirty = SafeInput.getRangedInt(in, "Enter your favorite number in the 30's [30-39]", 30, 39);
+//         System.out.println("You said your favorite number was " + thirty);
+//
+//         double price = SafeInput.getRangedDouble(in, "Enter the price of your item", 0.5, 13);
+//         System.out.println("The cost of your item is " + price);
+//
+//         boolean confirm = SafeInput.getYNConfirm(in, "Do you want to continue?");
+//         System.out.println("You said " + confirm);
+//
+//        String regEx = "[a-zA-Z0-9]+";
+//        String firstName = SafeInput.getRegExString(in, "Enter your name", regEx);
+//        System.out.println("Your name is: " + firstName);
+//
+//        String UC_ID_regEx = "M\\d{8}$";
+//        String telephoneNum_regEx = "^\\d{3}-\\d{3}-\\d{4}$";
+//
+//        String UC_ID = SafeInput.getRegExString(in, "Enter your UC School ID", UC_ID_regEx);
+//        System.out.println("Your UC ID is " + UC_ID);
+//
+//        String telephoneNum = SafeInput.getRegExString(in, "Enter your telephone number", telephoneNum_regEx);
+//        System.out.println("Your telephone number is " + telephoneNum);
+//
+//        System.out.print("Enter your header message: ");
+//        String userMsg = in.nextLine();
+//        prettyHeader(userMsg);
     }
 
     /**
@@ -221,5 +223,47 @@ public class DevTest {
         return val;
     }
 
+    /**
+     * A method that gets a puts a message from the user into a pretty header.
+     * @param msg gets the message from the user
+     * @return a pretty header with the message from the user.
+     */
+    public static void prettyHeader(String msg)
+    {
+
+        int width = 60;
+
+        for (int i = 0; i < width; i++)
+        {
+            System.out.print("*");
+        }
+        System.out.println();
+        int msgLength = msg.length();
+        int totalSpaces = width - 6 - msgLength;
+        int leftSpaces = totalSpaces / 2;
+        int rightSpaces = totalSpaces - leftSpaces;
+
+        System.out.print("***");
+
+        for (int i = 0; i < leftSpaces; i++)
+        {
+            System.out.print(" ");
+        }
+        System.out.print(msg);
+
+        for (int i = 0; i < rightSpaces; i++)
+        {
+            System.out.print(" ");
+        }
+        System.out.print("***");
+
+        System.out.println();
+         for (int i = 0; i < width; i++)
+         {
+             System.out.print("*");
+         }
+        System.out.println();
+
+    }
 }
 

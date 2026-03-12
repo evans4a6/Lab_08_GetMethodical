@@ -238,4 +238,51 @@ public class SafeInput {
     }
 
 
+    // BORDER
+    // BORDER
+    // BORDER
+
+
+    /**
+     * A method that gets a puts a message from the user into a pretty header.
+     * @param msg gets the message from the user
+     * @return a pretty header with the message from the user.
+     */
+    public static void prettyHeader(String msg)
+    {
+
+        int width = 60;
+
+        for (int i = 0; i < width; i++)
+        {
+            System.out.print("*");
+        }
+        System.out.println();
+        int msgLength = msg.length();
+        int totalSpaces = width - 6 - msgLength;
+        int leftSpaces = totalSpaces / 2;
+        int rightSpaces = totalSpaces - leftSpaces;
+
+        System.out.print("***");
+
+        for (int i = 0; i < leftSpaces; i++)
+        {
+            System.out.print(" ");
+        }
+        System.out.print(msg);
+
+        for (int i = 0; i < rightSpaces; i++)
+        {
+            System.out.print(" ");
+        }
+        System.out.print("***");
+
+        System.out.println();
+        for (int i = 0; i < width; i++)
+        {
+            System.out.print("*");
+        }
+        System.out.println();
+
+    }
 }
